@@ -155,6 +155,8 @@ Output: Binary Classification (Up/Down)
 
 ## Prerequisites & Installation
 
+- **NOTE**: Please clone the repository rather than downloading the zip since gcn_data.csv is hosted on Git LFS.
+
 ### System Requirements
 
 - **Python**: 3.8 or higher (tested with Python 3.12)
