@@ -237,38 +237,6 @@ python Fama_French_Strategies.py
 
 ---
 
-## Notebook Execution Order
-
-### Fama_French_Strategies.ipynb
-
-| Step | Cell Range | Description                            | Expected Time |
-| ---- | ---------- | -------------------------------------- | ------------- |
-| 1    | 1-4        | Imports and environment setup          | 30 seconds    |
-| 2    | 5-7        | Configuration and Spark initialization | 30 seconds    |
-| 3    | 8          | Download S&P 500 price data            | 3-5 minutes   |
-| 4    | 9-12       | Data preprocessing with Spark          | 1 minute      |
-| 5    | 13-16      | Factor computation                     | 30 seconds    |
-| 6    | 17-22      | Strategy backtesting                   | 1 minute      |
-| 7    | 23-27      | Fama-French regression                 | 1 minute      |
-| 8    | 28-41      | Visualizations and summary             | 30 seconds    |
-
-**Total Expected Runtime**: ~8-10 minutes (first run with data download)
-
-### GCN_Stock_Prediction.ipynb
-
-| Step | Cell Range | Description                       | Expected Time |
-| ---- | ---------- | --------------------------------- | ------------- |
-| 1    | 1-5        | Imports and GPU detection         | 30 seconds    |
-| 2    | 6-11       | Data loading and preprocessing    | 1 minute      |
-| 3    | 12-17      | Feature engineering               | 1 minute      |
-| 4    | 18-23      | Graph construction                | 2 minutes     |
-| 5    | 24-33      | GCN model definition and training | 5-10 minutes  |
-| 6    | 34-41      | Evaluation and visualization      | 1 minute      |
-
-**Total Expected Runtime**: ~10-15 minutes (GPU), ~30-45 minutes (CPU)
-
----
-
 ## Troubleshooting
 
 ### Common Issues
@@ -303,33 +271,6 @@ java -version
 
 **Issue**: yfinance data download fails for some tickers
 **Solution**: This is expected for delisted stocks. The notebook handles this gracefully.
-
----
-
-## Output Files
-
-After running the notebooks, the following files are generated:
-
-| File                           | Size    | Description                     |
-| ------------------------------ | ------- | ------------------------------- |
-| `data/prices.csv`              | ~158 MB | Raw OHLCV data for 494 stocks   |
-| `data/prices.parquet`          | ~50 MB  | Spark-optimized columnar format |
-| `data/fama_french_results.png` | ~200 KB | Performance comparison charts   |
-| `data/strategy_comparison.png` | ~250 KB | Strategy equity curves          |
-
----
-
-## Methodology Comparison
-
-| Aspect                 | Fama-French Strategies     | GCN Prediction       |
-| ---------------------- | -------------------------- | -------------------- |
-| **Approach**           | Traditional quant finance  | Deep learning        |
-| **Model Type**         | Linear factor model        | Graph neural network |
-| **Data Processing**    | Apache Spark (distributed) | PyTorch (GPU)        |
-| **Prediction Horizon** | Monthly rebalancing        | Daily prediction     |
-| **Interpretability**   | High (factor loadings)     | Low (black box)      |
-| **Scalability**        | Excellent (Spark)          | Good (batched)       |
-| **Training Time**      | N/A (no training)          | 10-30 minutes        |
 
 ---
 
