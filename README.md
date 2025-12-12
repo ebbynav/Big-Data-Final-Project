@@ -30,10 +30,11 @@ Big Data Final/
 ├── GCN_Stock_Prediction.ipynb      # Graph Neural Network stock prediction
 ├── README.md                       # This documentation file
 └── data/                           # Generated data directory (created on first run)
-    ├── prices.csv                  # Raw stock price data (~158 MB)
-    ├── prices.parquet/             # Spark-optimized format
-    ├── fama_french_results.png     # Performance visualization
-    └── strategy_comparison.png     # Strategy comparison charts
+    |── prices.csv                  # Raw stock price data (~158 MB)
+    |── prices.parquet/             # Spark-optimized format
+    |── fama_french_results.png     # Performance visualization
+    |── strategy_comparison.png     # Strategy comparison charts
+    ├── gcn_data.csv                # Ticker and preprocessed data for GCN
 ```
 
 ---
